@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+
+		<style>
+
+			table, td, th{
+				border: 1px solid black;
+				border-spacing: 0px;
+			}
+
+			td,th{
+				padding-left: 10px;	
+				padding-right: 10px;	
+				padding-top: 5px;	
+			}
+
+			th{
+				background-color: blue;
+				color: white;
+			}
+			
+
+		</style>
+
+		<script type="text/javascript">
+
+			function consultarBancoDeDados(){
+
+				var banco = [   
+								{"ra":"123", "nome":"maria", "idade":34}, 
+								{"ra":"456", "nome":"joao","idade":56},
+								{"ra":"789", "nome":"ana","idade":32}
+							];
+
+				var total_linhas = banco.length;
+
+				var linhas = "";
+
+				for (var i=0; i<total_linhas;i++){
+					linhas += `<tr>
+								<td><img src="imagens/delete.png"/></td>
+								<td><img src="imagens/edit.png"/></td>
+								<td>` + banco[i].ra + `</td>
+								<td>` + banco[i].nome + `</td>
+							  </tr>`;
+				}
+
+				document.getElementById("corpoTabela").innerHTML = linhas;
+
+			}
+
+
+		</script>
+<!--		<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+		<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#example1').DataTable({
+					"language": {
+						"lengthMenu": "Mostrando _MENU_ resultados por página",
+						"zeroRecords": "Nada foi encontrado",
+						"search":         "Procurar:",
+						"loadingRecords": "Carregando...",
+						"processing":     "Processando...",
+						"info": "Mostrando página _PAGE_de _PAGES_",
+						"infoEmpty": "SEM INFORMAÇÕES",
+						"infoFiltered": "(filtered from _MAX_ total records)",
+						"paginate": {
+							"first":      "Primeiro",
+							"last":       "Ultimo",
+							"next":       "Proximo",
+							"previous":   "Anterior"
+						}
+					}
+				});
+			});
+		</script>
+
+-->
+
+
+	</head>
+
+	<body>
+
+		<label for="ra">  RA......:</label>	  <input id="ra" type="text"/><br>
+		<label for="nome">NOME:</label>  <input id="nome" type="text"/><br><br>
+
+		<input type="button" value="Consultar" onClick="consultarBancoDeDados()"/>
+		<input type="button" value="Novo"/>
+		<input type="button" value="Salvar"/>
+
+		<br><br>
+
+		<table id="example1">
+			<thead>
+				<tr>
+					<th>Excluir</th>
+					<th>Editar</th>
+					<th>RA</th>
+					<th>NOME</th>
+				</tr>
+			</thead>
+			<tbody id="corpoTabela">
+				
+			</tbody>
+		</table>
+
+	</body>
+</html>
